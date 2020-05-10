@@ -1,19 +1,76 @@
 <!doctype html>
 
 <head>
-	<meta charset="utf-8">
-	<script>
-		// TODO: create a handler
-    window.addEventListener("load", function(){
-        // TODO: register the handler
-    });
-	</script>
+    <meta charset="utf-8">
+    <script>
+         
+        
+              window.addEventListener("load", function(){
+                debugger;
+                 var actionURL;
+                var actions = {
+                    Google: "https://www.google.com/search",
+                    DuckDuckGo:"https://duckduckgo.com/",
+                    bing:"https://www.bing.com/search",
+                    ask:"https://www.ask.com/web"
+                };
+
+              function setSearchEngine(){
+               
+                let Google = document.querySelector("input[name=engine]:checked");
+                let DuckDuckGo = document.querySelector("input[name=engine]:checked");
+                let Bing = document.querySelector("input[name=engine]:checked");
+                let Ask = document.querySelector("input[name=engine]:checked");
+
+                  if(Google.value==="google"){
+                      actionURL = actions.Google;
+                  }else if(DuckDuckGo.value==="duckDuckGo"){
+                      actionURL = actions.DuckDuckGo;
+                  }else if(Bing.value==="bing"){
+                      actionURL = actions.bing;
+                  }else{
+                      actionURL = actions.ask;
+                  }
+
+                    form.action = actionURL;  
+                    
+
+              }
+
+              let form = document.getElementById("searchForm")
+              form.addEventListener("submit", function(){
+                  setSearchEngine();
+              });
+              
+             
+
+              });
+
+
+
+      
+
+
+       
+    
+    </script>
 </head>
 
 <body>
 
-	<form id="searchForm">
+    <form id="searchForm" method="GET" action=actionURL>
+
+       <label><input type="text" name="q"></label>
+       <label>Google<input type="radio" name="engine" value="google"/></label>
+       <label>DuckDuckGo<input type="radio" name="engine" value="duckDuckGo"/></label>
+       <label>Bing<input type="radio" name="engine" value="bing"/></label>
+       <label>Ask<input type="radio" name="engine" value="ask"/></label>
+      <button>Go!</button>
+       
     <!-- TODO: add form elements -->
-	</form>
+  
+       
+    <!-- TODO: add form elements -->
+    </form>
 
 </body>
